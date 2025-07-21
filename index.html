@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Product Carousel</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Loading Indicator -->
+      <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading covers</p>
+      </div>
+
+      <!-- Carousel Section (initially hidden) -->
+      <section
+        class="carousel-container"
+        id="carouselContainer"
+        style="display: none; opacity: 0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Featured Products"
+      >
+        <h2 class="carousel-heading">Hospital cover</h2>
+
+        <div class="c-carousel__pagination-info">
+          <span class="pagination-info__text"
+            >Showing <span class="pagination-info__range">1-3</span> of
+            <span class="pagination-info__total">6</span> covers</span
+          >
+        </div>
+
+        <!-- ARIA Live Region for announcing slide changes -->
+        <div
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+          id="carouselAnnouncement"
+        ></div>
+
+        <div class="c-carousel">
+          <ul
+            class="c-carousel__track"
+            role="group"
+            aria-label="Product slides"
+          >
+            <li class="c-carousel__slide" aria-hidden="false">
+              <article>
+                <h3>Product 1</h3>
+                <p>
+                  High-quality product with excellent features for everyday use.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+            <li class="c-carousel__slide" aria-hidden="false">
+              <article>
+                <h3>Product 2</h3>
+                <p>
+                  Premium quality item designed for maximum durability and
+                  style.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+            <li class="c-carousel__slide" aria-hidden="false">
+              <article>
+                <h3>Product 3</h3>
+                <p>
+                  Budget-friendly option that doesn't compromise on quality.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+            <li class="c-carousel__slide" aria-hidden="true">
+              <article>
+                <h3>Product 4</h3>
+                <p>
+                  Top-of-the-line product with advanced features and modern
+                  design.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+            <li class="c-carousel__slide" aria-hidden="true">
+              <article>
+                <h3>Product 5</h3>
+                <p>
+                  Versatile product perfect for both professional and personal
+                  use.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+            <li class="c-carousel__slide" aria-hidden="true">
+              <article>
+                <h3>Product 6</h3>
+                <p>
+                  Innovative design meets functionality in this exceptional
+                  product.
+                </p>
+                <button class="product-btn">View Details</button>
+              </article>
+            </li>
+          </ul>
+          <button
+            class="c-carousel__btn c-carousel__btn--prev"
+            aria-label="Show previous group of products"
+          ></button>
+          <button
+            class="c-carousel__btn c-carousel__btn--next"
+            aria-label="Show next group of products"
+          ></button>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
