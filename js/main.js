@@ -198,7 +198,29 @@ const updateNavigationState = () => {
   const slidesPerView = getSlidesPerView();
   const maxSlideIndex = Math.max(0, totalSlides - slidesPerView);
 
-  // Disable/hide prev button at the beginning
+  // Check if navigation is needed (when not all items are visible)
+  const navigationNeeded = slidesPerView < totalSlides;
+
+  if (!navigationNeeded) {
+    // Hide navigation buttons completely when all items are visible
+    prevButton.style.display = "none";
+    nextButton.style.display = "none";
+    prevButton.setAttribute("aria-hidden", "true");
+    nextButton.setAttribute("aria-hidden", "true");
+    prevButton.tabIndex = -1;
+    nextButton.tabIndex = -1;
+    return;
+  }
+
+  // Show navigation buttons when needed
+  prevButton.style.display = "flex";
+  nextButton.style.display = "flex";
+  prevButton.setAttribute("aria-hidden", "false");
+  nextButton.setAttribute("aria-hidden", "false");
+  prevButton.tabIndex = 0;
+  nextButton.tabIndex = 0;
+
+  // Disable/enable prev button based on position
   if (currentSlideIndex === 0) {
     prevButton.style.opacity = "0.5";
     prevButton.disabled = true;
@@ -207,7 +229,7 @@ const updateNavigationState = () => {
     prevButton.disabled = false;
   }
 
-  // Disable/hide next button when last slide group is visible
+  // Disable/enable next button based on position
   if (currentSlideIndex >= maxSlideIndex) {
     nextButton.style.opacity = "0.5";
     nextButton.disabled = true;
