@@ -46,12 +46,12 @@ const totalSlides = slides.length;
 // Get current slides per view based on screen size
 const getSlidesPerView = () => {
   const screenWidth = window.innerWidth;
-  if (screenWidth <= 767) {
-    return 1; // Mobile: 1 card
-  } else if (screenWidth <= 1199) {
-    return 2; // Tablet: 2 cards
+  if (screenWidth < 800) {
+    return 1; // Mobile/sm: 1 card
+  } else if (screenWidth < 1200) {
+    return 2; // Tablet/lg: 2 cards
   } else {
-    return 3; // Desktop: 3 cards
+    return 3; // Desktop/xxl: 3 cards
   }
 };
 
