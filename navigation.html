@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Demo - Navigation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .nav-container {
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .nav-heading {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .nav-description {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+      }
+
+      .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .nav-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        min-width: 200px;
+        box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+      }
+
+      .nav-btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+      }
+
+      .nav-btn:active {
+        transform: translateY(0);
+      }
+
+      .nav-btn:focus {
+        outline: 3px solid #f39c12;
+        outline-offset: 2px;
+      }
+
+      .nav-btn--secondary {
+        background-color: #3498db;
+        box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+      }
+
+      .nav-btn--secondary:hover {
+        background-color: #2980b9;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+      }
+
+      .nav-btn--accent {
+        background-color: #3498db;
+        box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+      }
+
+      .nav-btn--accent:hover {
+        background-color: #2980b9;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+      }
+
+      @media (min-width: 768px) {
+        .nav-buttons {
+          flex-direction: row;
+          justify-content: center;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-heading {
+          font-size: 2rem;
+        }
+
+        .nav-description {
+          font-size: 1rem;
+        }
+
+        .nav-btn {
+          font-size: 1rem;
+          padding: 0.8rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+      <h1 class="nav-heading">Carousel Demo</h1>
+      <p class="nav-description">
+        Choose a carousel configuration to explore different product display
+        options. Each version demonstrates responsive behavior with varying
+        numbers of items.
+      </p>
+
+      <div class="nav-buttons">
+        <a href="index.html" class="nav-btn">
+          Multiple Products
+          <div style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9">
+            6 Items
+          </div>
+        </a>
+
+        <a href="two-products.html" class="nav-btn nav-btn--secondary">
+          Two Products
+          <div style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9">
+            2 Items
+          </div>
+        </a>
+
+        <a href="single-product.html" class="nav-btn nav-btn--accent">
+          Single Product
+          <div style="font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.9">
+            1 Item
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
