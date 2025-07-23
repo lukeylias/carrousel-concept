@@ -34,6 +34,7 @@ const slides = Array.from(track.children);
 const nextButton = document.querySelector(".c-carousel__btn--next");
 const prevButton = document.querySelector(".c-carousel__btn--prev");
 const carousel = document.querySelector(".c-carousel");
+const paginationLabel = document.querySelector(".pagination-info__label");
 const paginationRange = document.querySelector(".pagination-info__range");
 const paginationTotal = document.querySelector(".pagination-info__total");
 const liveRegion = document.getElementById("carouselAnnouncement");
@@ -56,12 +57,7 @@ const getSlidesPerView = () => {
 
 // Get navigation step size (how many cards to move per navigation)
 const getNavigationStep = () => {
-  const screenWidth = window.innerWidth;
-  if (screenWidth <= 767) {
-    return 1; // Mobile: Move 1 card at a time
-  } else {
-    return 3; // Tablet/Desktop: Move 3 cards at a time
-  }
+  return 1; // Always move 1 card at a time for all screen sizes
 };
 
 // Update aria-hidden attributes based on slide visibility
@@ -91,9 +87,9 @@ const updateLiveRegion = () => {
   // Create descriptive message for screen readers
   let message = "";
   if (slidesPerView === 1) {
-    message = `Showing item ${firstVisible} of ${totalSlides}`;
+    message = `Showing cover ${firstVisible} of ${totalSlides}`;
   } else {
-    message = `Showing items ${firstVisible} to ${lastVisible} of ${totalSlides}`;
+    message = `Showing covers ${firstVisible} to ${lastVisible} of ${totalSlides}`;
   }
 
   // Update live region
@@ -108,7 +104,16 @@ const updatePaginationInfo = () => {
   const firstVisible = currentSlideIndex + 1; // Convert to 1-based indexing
   const lastVisible = Math.min(currentSlideIndex + slidesPerView, totalSlides);
 
-  paginationRange.textContent = `${firstVisible}-${lastVisible}`;
+  // Handle singular/plural for "cover" vs "covers"
+  paginationLabel.textContent = slidesPerView === 1 ? "cover" : "covers";
+
+  // Show single number for one cover, range for multiple covers
+  if (slidesPerView === 1) {
+    paginationRange.textContent = `${firstVisible}`;
+  } else {
+    paginationRange.textContent = `${firstVisible}–${lastVisible}`;
+  }
+
   paginationTotal.textContent = totalSlides;
 };
 
