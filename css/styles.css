@@ -364,7 +364,7 @@ body {
 }
 
 /* Mobile breakpoint */
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .c-carousel__slide {
     flex: 0 0 calc(100% - 6px);
     max-width: 100%;
@@ -447,7 +447,7 @@ body {
 }
 
 /* Small mobile breakpoint */
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   .c-carousel {
     padding: 0 35px;
   }
