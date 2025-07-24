@@ -71,7 +71,7 @@ const updateSlideAriaAttributes = () => {
     slide.setAttribute("aria-hidden", isVisible ? "false" : "true");
 
     // Also update tabindex for buttons within hidden slides
-    const button = slide.querySelector(".product-btn");
+    const button = slide.querySelector(".product-card__btn");
     if (button) {
       button.tabIndex = isVisible ? 0 : -1;
     }
@@ -250,7 +250,7 @@ const constrainSlideIndex = (index) => {
 const setupFocusManagement = () => {
   slides.forEach((slide, index) => {
     // Add focus listeners to buttons within cards
-    const button = slide.querySelector(".product-btn");
+    const button = slide.querySelector(".product-card__btn");
     if (button) {
       button.addEventListener("focus", () => {
         moveToShowCard(index);
