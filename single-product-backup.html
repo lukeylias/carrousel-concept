@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Product Carousel</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Navigation Link -->
+      <div style="text-align: center; margin-bottom: 2rem">
+        <a
+          href="index.html"
+          style="
+            background-color: #95a5a6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+          "
+          onmouseover="this.style.backgroundColor='#7f8c8d'"
+          onmouseout="this.style.backgroundColor='#95a5a6'"
+          >← Back to Navigation</a
+        >
+      </div>
+
+      <!-- Loading Indicator -->
+      <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading covers</p>
+      </div>
+
+      <!-- Carousel Section (initially hidden) -->
+      <section
+        class="carousel-container"
+        id="carouselContainer"
+        style="display: none; opacity: 0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Featured Products"
+      >
+        <h2 class="carousel-heading">Hospital cover</h2>
+
+        <div class="c-carousel__pagination-info">
+          <span class="pagination-info__text"
+            >Showing <span class="pagination-info__label">cover</span>
+            <span class="pagination-info__range">1</span>
+            <span class="pagination-info__of">of</span>
+            <span class="pagination-info__total">1</span></span
+          >
+        </div>
+
+        <!-- ARIA Live Region for announcing slide changes -->
+        <div
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+          id="carouselAnnouncement"
+        ></div>
+
+        <div class="c-carousel">
+          <ul
+            class="c-carousel__track"
+            role="group"
+            aria-label="Product slides"
+          >
+            <li class="c-carousel__slide" aria-hidden="false">
+              <article class="product-card">
+                <div class="product-card__header"></div>
+
+                <div class="product-card__content">
+                  <h3 class="product-card__title">Complete Cover</h3>
+
+                  <div class="product-card__pricing">
+                    <span class="product-card__price">$35.00</span>
+                    <div class="product-card__frequency">
+                      <span>Weekly</span>
+                      <svg
+                        class="dropdown-icon"
+                        width="12"
+                        height="8"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                      >
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="#666"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="product-card__excess">
+                    <div class="excess-label">Excess</div>
+                    <div class="excess-amounts">
+                      <div class="excess-amount">$0</div>
+                      <div class="excess-amount">$0</div>
+                    </div>
+                  </div>
+
+                  <div class="product-card__coverage">
+                    <h4 class="coverage-title">
+                      What's covered?
+                      <svg
+                        class="info-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <circle
+                          cx="8"
+                          cy="8"
+                          r="7"
+                          stroke="#666"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M8 12V8M8 4H8.01"
+                          stroke="#666"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </h4>
+                    <ul class="coverage-list">
+                      <li class="coverage-item">
+                        <svg
+                          class="check-icon"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <circle cx="8" cy="8" r="8" fill="#5A67D8" />
+                          <path
+                            d="M5 8L7 10L11 6"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        Everything in all other tiers
+                      </li>
+                      <li class="coverage-item">
+                        <svg
+                          class="check-icon"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <circle cx="8" cy="8" r="8" fill="#5A67D8" />
+                          <path
+                            d="M5 8L7 10L11 6"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        Zero excess on all services
+                      </li>
+                      <li class="coverage-item">
+                        <svg
+                          class="check-icon"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <circle cx="8" cy="8" r="8" fill="#5A67D8" />
+                          <path
+                            d="M5 8L7 10L11 6"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        Global coverage & concierge
+                      </li>
+                      <li class="coverage-item">
+                        <svg
+                          class="check-icon"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <circle cx="8" cy="8" r="8" fill="#5A67D8" />
+                          <path
+                            d="M5 8L7 10L11 6"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        Premium wellness programs
+                      </li>
+                    </ul>
+                    <p class="coverage-more">
+                      Ultimate protection with no limits.
+                    </p>
+                  </div>
+
+                  <button class="product-card__btn">
+                    Select cover
+                    <svg
+                      class="btn-arrow"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 8H13M13 8L9 4M13 8L9 12"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <button
+            class="c-carousel__btn c-carousel__btn--prev"
+            aria-label="Show previous group of products"
+          ></button>
+          <button
+            class="c-carousel__btn c-carousel__btn--next"
+            aria-label="Show next group of products"
+          ></button>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

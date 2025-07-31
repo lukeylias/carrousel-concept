@@ -70,7 +70,11 @@ const updateSlideAriaAttributes = () => {
     const isVisible = index >= firstVisibleIndex && index <= lastVisibleIndex;
     slide.setAttribute("aria-hidden", isVisible ? "false" : "true");
 
-    // No buttons in placeholder cards to manage
+    // Also update tabindex for buttons within hidden slides
+    const button = slide.querySelector(".product-card__btn");
+    if (button) {
+      button.tabIndex = isVisible ? 0 : -1;
+    }
   });
 };
 
@@ -242,9 +246,17 @@ const constrainSlideIndex = (index) => {
   return Math.max(0, Math.min(index, maxSlideIndex));
 };
 
-// Setup focus management (not needed for placeholder cards)
+// Setup focus management for product buttons
 const setupFocusManagement = () => {
-  // No buttons in placeholder cards
+  slides.forEach((slide, index) => {
+    // Add focus listeners to buttons within cards
+    const button = slide.querySelector(".product-card__btn");
+    if (button) {
+      button.addEventListener("focus", () => {
+        moveToShowCard(index);
+      });
+    }
+  });
 };
 
 // Initialize carousel functionality (called after loading sequence)
